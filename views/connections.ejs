@@ -1,0 +1,19 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'База туров'); -%>
+
+<table border="1">
+    <tr>
+        <th colspan="2">Агент</td>
+        <th colspan="2">Клиент</td>
+    </tr>
+    <tr>
+        <th>Фамилия</td>
+        <th>Имя</td>
+        <th>Фамилия</td>
+        <th>Имя</td>
+    </tr>
+    <% for(var i=0; i<rows.length; i++) {%>
+    <tr><td><%=rows[i].a_f_name%></td><td><%=rows[i].a_s_name%></td><td><%=rows[i].c_f_name%></td><td><%=rows[i].c_s_name%></td></tr>
+    <% } %>
+</table>

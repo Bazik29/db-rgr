@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%=blocks.title%></title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .wrapper {
+            position: relative;
+            width: 700px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+
+        }
+        aside {
+            border-right: 1px solid #eee;
+        }
+        nav a {
+            display: block;
+            text-align: left;
+            padding: 10px;
+        }
+        main, header, footer {
+            padding: 10px;
+        }
+        header, footer {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <header class="wrapper">                
+        <h2>База данных "Туристическое  агентство"</h2>
+    </header>
+    <div class="wrapper grid">
+        <aside>
+            <nav>
+                <a href="/">Главная</a>
+                <a href="/agents">База турагентов</a>
+                <a href="/clients">База клиентов</a>
+                <a href="/countries">База стран</a>
+                <a href="/tours">База туров</a>
+                <a href="/connections">Распределение агентов</a>
+                <a href="#">lis</a>
+                <a href="#">lis</a>
+                <a href="#">lis</a>
+            </nav>
+        </aside>
+        <main>
+            <%-body -%>
+        </main>
+    </div>
+    <footer class="wrapper">
+        <%-blocks.footer%>
+    </footer>
+</body>
+</html>

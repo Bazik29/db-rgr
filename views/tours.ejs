@@ -1,0 +1,26 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'База туров'); -%>
+
+<form action="/add_agent" method="post">
+
+<table>
+	<caption>Добавление тура в базу данных</caption>
+	<tr><td>Название:</td><td><input type="text" name="name" required></td></tr>
+	<tr><td>Страна:</td><td><input type="text" name="country" required></td></tr>
+	<tr><td>Дата заезда:</td><td><input type="text" name="date"></td></tr>
+	<tr><td>Количество дней:</td><td><input type="text" name="num_days" required></td></tr>
+	<tr><td>Количество мест:</td><td><input type="text" name="num_place" required></td></tr>
+	<tr><td>Цена:</td><td><input type="text" name="price_rubl" required></td></tr>
+</table>
+<p><button type="submit">Добавить тур</button></p>
+
+</form>
+<br>
+<table border="1">
+	<caption>Список всех туров</caption>
+	<tr><th>Название</th><th>Страна</th><th>Дата заезда</th><th>Количество дней</th><th>Количество мест</th><th>Цена</th></tr>
+	<% for(var i=0; i<rows.length; i++) {%>
+	<tr><td><%=rows[i].name %></td><td><%=rows[i].date %></td><td><%=rows[i].country %></td><td><%=rows[i].num_days %></td><td><%=rows[i].num_place %></td><td><%=rows[i].price_rubl %></td></tr>
+	<% } %>
+</table>

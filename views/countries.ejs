@@ -1,0 +1,21 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'База стран'); -%>
+
+<form action="/add_agent" method="post">
+
+<table>
+	<caption>Добавление страны в базу данных</caption>
+	<tr><td>Страна:</td><td><input type="text" name="name" required></td></tr>
+</table>
+<p><button type="submit">Добавить страну</button></p>
+
+</form>
+<br>
+<table border="1">
+	<caption>Список стран</caption>
+	<tr><th>Страна</th></tr>
+	<% for(var i=0; i<rows.length; i++) {%>
+	<tr><td><%=rows[i].name%></td></tr>
+	<% } %>
+</table>

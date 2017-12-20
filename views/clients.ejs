@@ -1,0 +1,26 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'База клиентов'); -%>
+
+<form action="/add_agent" method="post">
+
+<table>
+	<caption>Добавление клиента в базу данных</caption>
+	<tr><td>Фамилия:</td><td><input type="text" name="name1" required></td></tr>
+	<tr><td>Имя:</td><td><input type="text" name="name2" required></td></tr>
+	<tr><td>Отчество:</td><td><input type="text" name="name3"></td></tr>
+	<tr><td>Телефоны</td><td><input type="text" name="phone" required></td></tr>
+	<tr><td>Адресс:</td><td><input type="text" name="adress" required></td></tr>
+	<tr><td>Паспорт:</td><td><input type="text" name="pasport" required></td></tr>
+</table>
+<p><button type="submit">Добавить клиента</button></p>
+
+</form>
+<br>
+<table border="1">
+	<caption>Список клиентов</caption>
+	<tr><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Телефоны</th><th>Адресс</th><th>Паспорт</th><th></th></tr>
+	<% for(var i=0; i<rows.length; i++) {%>
+	<tr><td><%=rows[i].name1 %></td><td><%=rows[i].name2 %></td><td><%=rows[i].name3 %></td><td><%=rows[i].phone %></td><td><%=rows[i].adress %></td><td><%=rows[i].pasport %></td></tr>
+	<% } %>
+</table>
