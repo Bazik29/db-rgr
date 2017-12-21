@@ -439,11 +439,11 @@ app.post("/del_currencies", urlencodedParser, (request, response) => {
 });
 
 // Таблица курса валют
-var sql_curs = 'SELECT name, value FROM exchange_rates LEFT JOIN currencies ON currencies.id = id_currency';
+var sql_curs_all = 'SELECT name, value FROM exchange_rates LEFT JOIN currencies ON currencies.id = id_currency';
 var sql_curs_update = 'UPDATE exchange_rates SET value=? WHERE (SELECT currencies.id FROM currencies LEFT JOIN exchange_rates ON currencies.id = id_currency WHERE name=?) = id_currency';
 
 app.get("/exchange_rates", (request, response) => {
-	db.all(sql_curs, function (err, rates) {
+	db.all(sql_curs_all, function (err, rates) {
 		if (err) console.log(err.message);
 		response.render("exchange_rates", {rates: rates});
 	});
@@ -458,7 +458,7 @@ app.post("/chg_rate", urlencodedParser, (request, response) => {
 		if (err) console.log(err.message);
 	});
 
-	db.all(sql_curs, (err, rows) => {
+	db.all(sql_curs_all, (err, rows) => {
 	  if (err) console.log(err.message);
 	  response.render("exchange_rates", {rates: rows});
 	});
