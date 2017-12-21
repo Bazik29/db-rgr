@@ -1,0 +1,29 @@
+<% layout('layout/page') -%>
+
+<table>
+    <tr>
+        <td>
+        <form action="/chg_rate" method="post">
+		<table>
+			<caption>Изменение курса валюты</caption>
+			<tr>
+				<td><table>
+					<caption>Новый курс</caption>
+					<tr><td>Валюта:</td><td><select name="name" required><% for(var i=0; i<rates.length; i++) {%><option><%=rates[i].name %></option><% } %></select></td></tr>
+					<tr><td>Стоимость:</td><td><input type="number" name="value" required></td></tr>
+				</table></td>
+			</tr>
+		</table>	
+	<p><button type="submit">Изменить данные валюты</button></p>
+	</form>
+        </td>
+    </tr>
+</table>
+<br>
+<table class="data">
+	<caption>Курс валют</caption>
+	<tr><th>Валюта</th><th>Стоимость, руб</th></tr>
+	<% for(var i=0; i<rates.length; i++) {%>
+	<tr><td><%=rates[i].name %></td><td><%=rates[i].value %></td></tr>
+	<% } %>
+</table>

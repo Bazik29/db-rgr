@@ -13,7 +13,7 @@
 			<tr><td>Дата заезда:</td><td><input type="text" name="date"></td></tr>
 			<tr><td>Количество дней:</td><td><input type="text" name="num_days" required></td></tr>
 			<tr><td>Количество мест:</td><td><input type="text" name="num_place" required></td></tr>
-			<tr><td>Цена:</td><td><input type="text" name="price_rubl" required></td></tr>
+			<tr><td>Цена, руб:</td><td><input type="text" name="price_rubl" required></td></tr>
 		</table>
 		<p><button type="submit">Добавить тур</button></p>
 		</form>
@@ -39,12 +39,12 @@
 		<tr>
 			<td><table>
 				<caption>Старые данные</caption>
-				<tr><td>Название:</td><td><input type="text" name="name" required></td></tr>
+				<tr><td>Название:</td><td><input type="text" name="name_old" required></td></tr>
 				<tr><td>Страна:</td><td><select name="country" required><% for(var i=0; i<countries.length; i++) {%><option><%=countries[i].name %></option><% } %></select></td></tr>
-				<tr><td>Дата заезда:</td><td><input type="text" name="date"></td></tr>
-				<tr><td>Количество дней:</td><td><input type="text" name="num_days" required></td></tr>
-				<tr><td>Количество мест:</td><td><input type="text" name="num_place" required></td></tr>
-				<tr><td>Цена:</td><td><input type="text" name="price_rubl" required></td></tr>
+				<tr><td>Дата заезда:</td><td><input type="text" name="date_old"></td></tr>
+				<tr><td>Количество дней:</td><td><input type="text" name="num_days_old" required></td></tr>
+				<tr><td>Количество мест:</td><td><input type="text" name="num_place_old" required></td></tr>
+				<tr><td>Цена, руб:</td><td><input type="text" name="price_rubl_old" required></td></tr>
 			</table></td>
 			<td><table>
 				<caption>Новые данные</caption>
@@ -53,7 +53,7 @@
 				<tr><td>Дата заезда:</td><td><input type="text" name="date"></td></tr>
 				<tr><td>Количество дней:</td><td><input type="text" name="num_days" required></td></tr>
 				<tr><td>Количество мест:</td><td><input type="text" name="num_place" required></td></tr>
-				<tr><td>Цена:</td><td><input type="text" name="price_rubl" required></td></tr>
+				<tr><td>Цена, руб:</td><td><input type="text" name="price_rubl" required></td></tr>
 			</table></td>
 		</tr>
 		</table>	
@@ -67,7 +67,7 @@
 <br>
 <table class="data">
 	<caption>Список всех туров</caption>
-	<tr><th>Название</th><th>Страна</th><th>Дата заезда</th><th>Количество дней</th><th>Количество мест</th><th>Цена</th></tr>
+	<tr><th>Название</th><th>Страна</th><th>Дата заезда</th><th>Количество дней</th><th>Количество мест</th><th>Цена, руб</th></tr>
 	<% for(var i=0; i<rows.length; i++) {%>
 	<tr><td><%=rows[i].name %></td><td><%=rows[i].country %></td><td><%=rows[i].date %></td><td><%=rows[i].num_days %></td><td><%=rows[i].num_place %></td><td><%=rows[i].price_rubl %></td></tr>
 	<% } %>

@@ -21,8 +21,8 @@ CREATE TABLE clients (
 CREATE TABLE connections (
   id_agent INTEGER NOT NULL,
   id_client INTEGER NOT NULL,
-  FOREIGN KEY (id_agent) REFERENCES agents(id)
-  FOREIGN KEY (id_client) REFERENCES clients(id)
+  FOREIGN KEY (id_agent) REFERENCES agents(id) ON DELETE CASCADE
+  FOREIGN KEY (id_client) REFERENCES clients(id) ON DELETE CASCADE
 );
     
 CREATE TABLE tours (
@@ -33,14 +33,14 @@ CREATE TABLE tours (
   num_days INTEGER NOT NULL,
   num_place INTEGER NOT NULL,
   price_rubl INTEGER NOT NULL,
-  FOREIGN KEY (id_country) REFERENCES countries(id)
+  FOREIGN KEY (id_country) REFERENCES countries(id) ON DELETE CASCADE
 );
     
 CREATE TABLE groups (
   id_tour INTEGER NOT NULL,
   id_client INTEGER NOT NULL,
-  FOREIGN KEY (id_tour) REFERENCES tours(id)
-  FOREIGN KEY (id_client) REFERENCES clients(id)
+  FOREIGN KEY (id_tour) REFERENCES tours(id) ON DELETE CASCADE
+  FOREIGN KEY (id_client) REFERENCES clients(id) ON DELETE CASCADE
 );
 
 CREATE TABLE countries (
@@ -57,5 +57,5 @@ CREATE TABLE exchange_rates (
   id INTEGER PRIMARY KEY ASC,
   id_currency VARCHAR(255) NOT NULL,
   value INTEGER NOT NULL,
-  FOREIGN KEY (id_currency) REFERENCES currencies(id)
+  FOREIGN KEY (id_currency) REFERENCES currencies(id) ON DELETE CASCADE
 );

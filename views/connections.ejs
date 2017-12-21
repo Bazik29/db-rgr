@@ -3,17 +3,20 @@
 <% block('title', 'База туров'); -%>
 
 <table class="data">
+    <caption>Распределение агентов по клиентам</caption>
     <tr>
-        <th colspan="2">Агент</td>
-        <th colspan="2">Клиент</td>
+        <th colspan="3">Агент</td>
+        <th colspan="3">Клиент</td>
     </tr>
     <tr>
         <th>Фамилия</td>
         <th>Имя</td>
+        <th>Отчество</td>
         <th>Фамилия</td>
         <th>Имя</td>
+        <th>Отчество</td>
     </tr>
     <% for(var i=0; i<rows.length; i++) {%>
-    <tr><td><%=rows[i].a_f_name%></td><td><%=rows[i].a_s_name%></td><td><%=rows[i].c_f_name%></td><td><%=rows[i].c_s_name%></td></tr>
+    <tr><td><%=rows[i].a_f_name%></td><td><%=rows[i].a_s_name%></td><td><%=rows[i].a_l_name%></td><td><%=rows[i].c_f_name%></td><td><%=rows[i].c_s_name%></td><td><%=rows[i].c_l_name%></td></tr>
     <% } %>
 </table>

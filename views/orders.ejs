@@ -1,0 +1,9 @@
+<% layout('layout/page') -%>
+
+<table class="data">
+	<caption>Список заказанных туров (тур-клиент)</caption>
+	<tr><th>Название тура</th><th>Страна</th><th>Дата заезда</th><th>Кол-во дней</th><th>Цена, руб</th><th>Фамилия</th><th>Имя</th><th>Отчество</th></tr>
+	<% for(var i=0; i<rows.length; i++) {%>
+	<tr><td><%=rows[i].name %></td><td><%=rows[i].country %></td><td><%=rows[i].date %></td><td><%=rows[i].num_days %></td><td><%=rows[i].price_rubl %></td><td><%=rows[i].name1 %></td><td><%=rows[i].name2 %></td><td><%=rows[i].name3 %></td></tr>
+	<% } %>
+</table>

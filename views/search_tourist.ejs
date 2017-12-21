@@ -9,8 +9,6 @@
 	<tr><td>Страна:</td><td><select name="country" required><% for(var i=0; i<countries.length; i++) {%><option><%=countries[i].name %></option><% } %></select></td></tr>
 	<tr><td>Дата заезда:</td><td><input type="date" name="date" required></td></tr>
 	<tr><td>Количество дней:</td><td><input type="number" name="num_days" required></td></tr>
-	<tr><td>Количество мест:</td><td><input type="text" name="num_place" required></td></tr>
-	<tr><td>Цена:</td><td><input type="text" name="price_rubl" required></td></tr>
 </table>
 <p><button type="submit">Поиск</button></p>
 </form>

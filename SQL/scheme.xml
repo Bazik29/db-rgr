@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="325" y="38" name="clients">
+</datatypes><table x="327" y="38" name="clients">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -132,7 +132,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="86" y="208" name="exchange_rates">
+<table x="7" y="200" name="exchange_rates">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -140,9 +140,6 @@
 <datatype>VARCHAR</datatype>
 <default>'NULL'</default><relation table="currencies" row="id" />
 </row>
-<row name="date" null="0" autoincrement="0">
-<datatype>DATE</datatype>
-<default>'NULL'</default></row>
 <row name="value" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -161,7 +158,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="286" y="253" name="currencies">
+<table x="188" y="201" name="currencies">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>

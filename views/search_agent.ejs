@@ -10,14 +10,15 @@
 </table>
 <p><button type="submit">Поиск</button></p>
 </form>
-Телефоны: <%=phones %>
-<br>
+<% if (agent[0]!==undefined && phone!==undefined) {%>
+<p>Агент: <%=agent[0]%> <%=agent[1]%> <%=agent[2]%></p>
+<p>Телефоны: <%=phone.phone%></p><% }%>
 <% if (rows.length) {%>
 <table class="data">
 	<caption>Клиенты</caption>
-	<tr><th>Фамилия</th><th>Имя</th><th>Адресс</th></tr>
+	<tr><th>Фамилия</th><th>Имя</th><th>Отчество</th></tr>
 	<% for(var i=0; i<rows.length; i++) {%>
-	<tr><td><%=rows[i].first_name %></td><td><%=rows[i].second_name %></td><td><%=rows[i].pasport %></td><td><%=rows[i].agent%></td></tr>
+	<tr><td><%=rows[i].first_name %></td><td><%=rows[i].second_name %></td><td><%=rows[i].last_name %></td></tr>
 	<% } %>
 </table>
 <%}%>

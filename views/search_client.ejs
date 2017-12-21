@@ -10,14 +10,32 @@
 </table>
 <p><button type="submit">Поиск</button></p>
 </form>
-
+<% if (client[0]!==undefined) {%><p>Клиент: <%=client[0]%> <%=client[1]%> <%=client[2]%></p><% }%>
 <br>
-<% if (rows.length) {%>
+<% if (pers_data.phone) {%>
 <table class="data">
-	<caption>Сведения</caption>
-	<tr><th>Телефоны</th><th>Адресс</th><th>Паспорт</th><th>Агент</th><th>Тур</th></tr>
-	<% for(var i=0; i<rows.length; i++) {%>
-	<tr><td><%=rows[i].phone %></td><td><%=rows[i].adress %></td><td><%=rows[i].pasport %></td><td><%=rows[i].agent%></td></tr>
+	<caption>Персональные данные</caption>
+	<tr><th>Телефоны</th><th>Адресс</th><th>Паспорт</th></tr>
+	<tr><td><%=pers_data.phone %></td><td><%=pers_data.adress %></td><td><%=pers_data.pasport %></td></tr>
+</table>
+<%}%>
+<br>
+<% if (tours.length) {%>
+<table class="data">
+	<caption>Заказанные туры</caption>
+	<tr><th>Название</th><th>Страна</th><th>Дата заезда</th><th>Количество дней</th><th>Цена, руб</th></tr>
+	<% for(var i=0; i<tours.length; i++) {%>
+	<tr><td><%=tours[i].name %></td><td><%=tours[i].country %></td><td><%=tours[i].date %></td><td><%=tours[i].num_days %></td></td><td><%=tours[i].price_rubl %></td></tr>
+	<% } %>
+</table>
+<%}%>
+<br>
+<% if (agents.length) {%>
+<table class="data">
+	<caption>Агенты</caption>
+	<tr><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Телефоны</th></tr>
+	<% for(var i=0; i<agents.length; i++) {%>
+	<tr><td><%=agents[i].name1 %></td><td><%=agents[i].name2 %></td><td><%=agents[i].name3 %></td><td><%=agents[i].phone %></td></tr>
 	<% } %>
 </table>
 <%}%>

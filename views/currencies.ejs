@@ -1,0 +1,52 @@
+<% layout('layout/page') -%>
+
+<table>
+    <tr>
+        <td>
+        <form action="/add_currencies" method="post">
+		<table>
+			<caption>Добавить валюту в базу данных</caption>
+			<tr><td>Валюта:</td><td><input type="text" name="name" required></td></tr>
+		</table>
+		<p><button type="submit">Добавить валюту</button></p>
+		</form>
+        </td>
+        <td>
+        <form action="/del_currencies" method="post">
+		<table>
+			<caption>Удалить валюту из базы данных</caption>
+			<tr><td>Валюта:</td><td><input type="text" name="name" required></td></tr>
+		</table>
+		<p><button type="submit">Удалить валюту</button></p>
+		</form>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+        <form action="/chg_currencies" method="post">
+		<table>
+			<caption>Изменение данных валюты</caption>
+			<tr>
+				<td><table>
+					<caption>Старые данные</caption>
+					<tr><td>Валюта:</td><td><input type="text" name="name_old" required></td></tr>
+				</table></td>
+				<td><table>
+					<caption>Новые данные</caption>
+					<tr><td>Валюта:</td><td><input type="text" name="name" required></td></tr>
+				</table></td>
+			</tr>
+		</table>	
+	<p><button type="submit">Изменить имя валюты</button></p>
+	</form>
+        </td>
+    </tr>
+</table>
+<br>
+<table class="data">
+	<caption>Список валют</caption>
+	<tr><th>Валюта</th></tr>
+	<% for(var i=0; i<currencies.length; i++) {%>
+	<tr><td><%=currencies[i].name %></td></td></tr>
+	<% } %>
+</table>
