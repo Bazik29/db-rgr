@@ -56,7 +56,6 @@ CREATE TABLE currencies (
 CREATE TABLE exchange_rates (
   id INTEGER PRIMARY KEY ASC,
   id_currency VARCHAR(255) NOT NULL,
-  date DATE NOT NULL,
   value INTEGER NOT NULL,
   FOREIGN KEY (id_currency) REFERENCES currencies(id)
 );

@@ -1,0 +1,27 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'Поиск сведений о туристах заданного тура в заданное время'); -%>
+
+<form action="/search_tourist_go" method="post">
+<table>
+	<caption>Поиск сведений о туристах заданного тура в заданное время</caption>
+	<tr><td>Название тура:</td><td><input type="text" name="name" required></td></tr>
+	<tr><td>Страна:</td><td><select name="country" required><% for(var i=0; i<countries.length; i++) {%><option><%=countries[i].name %></option><% } %></select></td></tr>
+	<tr><td>Дата заезда:</td><td><input type="date" name="date" required></td></tr>
+	<tr><td>Количество дней:</td><td><input type="number" name="num_days" required></td></tr>
+	<tr><td>Количество мест:</td><td><input type="text" name="num_place" required></td></tr>
+	<tr><td>Цена:</td><td><input type="text" name="price_rubl" required></td></tr>
+</table>
+<p><button type="submit">Поиск</button></p>
+</form>
+
+<br>
+<% if (rows.length) {%>
+<table class="data">
+	<caption>Список клиентов</caption>
+	<tr><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Телефоны</th><th>Адресс</th><th>Паспорт</th></tr>
+	<% for(var i=0; i<rows.length; i++) {%>
+	<tr><td><%=rows[i].name1 %></td><td><%=rows[i].name2 %></td><td><%=rows[i].name3 %></td><td><%=rows[i].phone %></td><td><%=rows[i].adress %></td><td><%=rows[i].pasport %></td></tr>
+	<% } %>
+</table>
+<%}%>

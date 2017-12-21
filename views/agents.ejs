@@ -2,20 +2,61 @@
 
 <% block('title', 'База турагентов'); -%>
 
-<form action="/add_agent" method="post">
-
 <table>
-	<caption>Добавление турагента в базу данных</caption>
-	<tr><td>Фамилия:</td><td><input type="text" name="name1" required></td></tr>
-	<tr><td>Имя:</td><td><input type="text" name="name2" required></td></tr>
-	<tr><td>Отчество:</td><td><input type="text" name="name3"></td></tr>
-	<tr><td>Телефоны</td><td><input type="text" name="phone" required></td></tr>
+    <tr>
+        <td>
+        <form action="/add_agent" method="post">
+		<table>
+			<caption>Добавление турагента в базу данных</caption>
+			<tr><td>Фамилия:</td><td><input type="text" name="name1" required></td></tr>
+			<tr><td>Имя:</td><td><input type="text" name="name2" required></td></tr>
+			<tr><td>Отчество:</td><td><input type="text" name="name3" required></td></tr>
+			<tr><td>Телефоны</td><td><input type="text" name="phone" required></td></tr>
+		</table>
+		<p><button type="submit">Добавить турагента</button></p>
+		</form>
+        </td>
+        <td>
+        <form action="/del_agent" method="post">
+		<table>
+			<caption>Удаление турагента из базы данных</caption>
+			<tr><td>Фамилия:</td><td><input type="text" name="name1" required></td></tr>
+			<tr><td>Имя:</td><td><input type="text" name="name2" required></td></tr>
+			<tr><td>Отчество:</td><td><input type="text" name="name3" required></td></tr>
+		</table>
+		<p><button type="submit">Удалить турагента</button></p>
+		</form>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+        <form action="/chg_agent" method="post">
+		<table>
+			<caption>Изменение данных турагента</caption>
+			<tr>
+				<td><table>
+					<caption>Старые данные</caption>
+					<tr><td>Фамилия:</td><td><input type="text" name="name1_old" required></td></tr>
+					<tr><td>Имя:</td><td><input type="text" name="name2_old" required></td></tr>
+					<tr><td>Отчество:</td><td><input type="text" name="name3_old" required></td></tr>
+				</table></td>
+				<td><table>
+					<caption>Новые данные</caption>
+					<tr><td>Фамилия:</td><td><input type="text" name="name1" required></td></tr>
+					<tr><td>Имя:</td><td><input type="text" name="name2" required></td></tr>
+					<tr><td>Отчество:</td><td><input type="text" name="name3" required></td></tr>
+					<tr><td>Телефоны:</td><td><input type="text" name="phone" required></td></tr>
+				</table></td>
+			</tr>
+		</table>	
+	<p><button type="submit">Изменить данные турагента</button></p>
+	</form>
+        </td>
+    </tr>
 </table>
-<p><button type="submit">Добавить турагента</button></p>
 
-</form>
 <br>
-<table border="1">
+<table class="data">
 	<caption>Список турагентов</caption>
 	<tr><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Телефоны</th></tr>
 	<% for(var i=0; i<rows.length; i++) {%>

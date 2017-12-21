@@ -2,17 +2,51 @@
 
 <% block('title', 'База стран'); -%>
 
-<form action="/add_agent" method="post">
-
 <table>
-	<caption>Добавление страны в базу данных</caption>
-	<tr><td>Страна:</td><td><input type="text" name="name" required></td></tr>
+    <tr>
+        <td>
+        <form action="/add_country" method="post">
+		<table>
+			<caption>Добавление страны в базу данных</caption>
+			<tr><td>Страна:</td><td><input type="text" name="name" required></td></tr>
+		</table>
+		<p><button type="submit">Добавить страну</button></p>
+		</form>
+        </td>
+        <td>
+        <form action="/del_country" method="post">
+		<table>
+			<caption>Удаление страны из базы данных</caption>
+			<tr><td>Страна:</td><td><input type="text" name="name" required></td></tr>
+		</table>
+		<p><button type="submit">Удалить страну</button></p>
+		</form>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+        <form action="/chg_country" method="post">
+		<table>
+		<caption>Изменение данных страны</caption>
+		<tr>
+		<td><table>
+			<caption>Старые данные</caption>
+			<tr><td>Страна:</td><td><input type="text" name="name_old" required></td></tr>
+		</table></td>
+		<td><table>
+			<caption>Новые данные</caption>
+			<tr><td>Страна:</td><td><input type="text" name="name" required></td></tr>
+		</table></td>
+		</tr>
+		</table>	
+		<p><button type="submit">Изменить данные страны</button></p>
+		</form>
+        </td>
+    </tr>
 </table>
-<p><button type="submit">Добавить страну</button></p>
 
-</form>
 <br>
-<table border="1">
+<table class="data">
 	<caption>Список стран</caption>
 	<tr><th>Страна</th></tr>
 	<% for(var i=0; i<rows.length; i++) {%>

@@ -1,0 +1,25 @@
+<% layout('layout/page') -%>
+
+<% block('title', 'Поиск туров с N свободных мест, на период отдыха с Даты1 до Даты2'); -%>
+
+<form action="/search_date_go" method="post">
+<table>
+	<caption>Поиск туров с N свободных мест, на период отдыха с Даты1 до Даты2</caption>
+	<tr><td>Свободно мест:</td><td><input type="number" name="free_place" required></td></tr>
+	<tr><td>Дата1:</td><td><input type="date" name="date1" required></td></tr>
+	<tr><td>Дата2:</td><td><input type="date" name="date2" required></td></tr>
+	<tr><td>Отобразить цену в:</td><td><select name="currency" required><% for(var i=0; i<currencies.length; i++) {%><option><%=currencies[i].name %></option><% } %></select></td></tr>
+</table>
+<p><button type="submit">Поиск</button></p>
+</form>
+
+<br>
+<% if (rows.length) {%>
+<table class="data">
+	<caption>Список стран</caption>
+	<tr><th>Название</th><th>Страна</th><th>Дата заезда</th><th>Количество дней</th><th>Свободно мест</th><th>Цена</th></tr>
+	<% for(var i=0; i<rows.length; i++) {%>
+	<tr><td><%=rows[i].tour_name %></td><td><%=rows[i].country %></td><td><%=rows[i].date %></td><td><%=rows[i].num_days %></td><td><%=rows[i].free_place %></td><td><%=rows[i].price*value %></td></tr>
+	<% } %>
+</table>
+<%}%>

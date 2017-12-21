@@ -1,0 +1,23 @@
+<% layout('layout/page') -%>
+
+
+<form action="/search_client_go" method="post">
+<table>
+	<caption>Поиск всех сведений о конкретном клиенте</caption>
+	<tr><td>Фамилия:</td><td><input type="text" name="name1" required></td></tr>
+	<tr><td>Имя:</td><td><input type="text" name="name2" required></td></tr>
+	<tr><td>Отчество:</td><td><input type="text" name="name3"></td></tr>
+</table>
+<p><button type="submit">Поиск</button></p>
+</form>
+
+<br>
+<% if (rows.length) {%>
+<table class="data">
+	<caption>Сведения</caption>
+	<tr><th>Телефоны</th><th>Адресс</th><th>Паспорт</th><th>Агент</th><th>Тур</th></tr>
+	<% for(var i=0; i<rows.length; i++) {%>
+	<tr><td><%=rows[i].phone %></td><td><%=rows[i].adress %></td><td><%=rows[i].pasport %></td><td><%=rows[i].agent%></td></tr>
+	<% } %>
+</table>
+<%}%>
